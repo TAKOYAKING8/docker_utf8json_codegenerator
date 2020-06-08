@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  utf8json:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # gitのリリースタグ
+        BRANCH_TAG: "v1.3.7"
+    # 自身のプロジェクトパス。このパス以下のフォルダとファイルが/srcをルートとして配下に配置される。下のcommandの引数 -dや-oのパスはここを基準に指定する。
+    volumes:
+      - </YOUR/PROJECT/PATH>:/src/
+    # See https://github.com/neuecc/Utf8Json#pre-code-generationunityxamarin-supports
+    # 2つ目は固定で、3つ目からオプションを指定すること。(optionの説明は公式を参照)。パスの指定方法はvolumeで決定される
+    command: ["dotnet", "/app/Utf8Json.UniversalCodeGenerator.dll", "-d", "/src/<INPUT_DIR>", "-o", "/src/<OUTPUT_DIR>/Utf8JsonGenerated.cs"]
+
+# 準備
+# <>を埋めていく
+# docker-compose.yml.sampel から.sampleを取り除く
+# docker-compose build
+# docker-compose run --rm utf8json
+
+# a sample directory structure
+# YOUR
+#   - PROJECT
+#     - PATH (= /src)
+#       - INPUT_DIR (シリアライズしたいクラス)
+#       - OUTPUT_DIR
+#          - Utf8JsonGenerated.cs
+
