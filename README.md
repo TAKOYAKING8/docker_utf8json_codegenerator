@@ -15,7 +15,11 @@ dockerfile
 1. docker-compose build
 1. docker-compose run --rm utf8json
 
-[Pre Code Getnerationのオプションはこちら](https://github.com/neuecc/Utf8Json#pre-code-generationunityxamarin-supports  )
+[Pre Code Getnerationのオプションはこちら](https://github.com/neuecc/Utf8Json#pre-code-generationunityxamarin-supports)
+
+# バージョンの更新
+[Utf8Json - Fast JSON Serializer for C#](https://github.com/neuecc/Utf8Json)が更新されたら、docker-compose.ymlの<BRANCH_TAG>を更新する。  
+現在はv1.3.7に固定している。
 
 
 # 懸念点
