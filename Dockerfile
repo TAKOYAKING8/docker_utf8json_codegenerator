@@ -4,11 +4,12 @@
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 ARG ROOT=src/Utf8Json.UniversalCodeGenerator/Utf8Json.UniversalCodeGenerator.csproj
+ARG GIT_REPO=https://github.com/neuecc/Utf8Json.git
 ARG BRANCH_TAG
 WORKDIR /src
 
 # git clone
-RUN git clone https://github.com/neuecc/Utf8Json.git . -b $BRANCH_TAG --depth 1 
+RUN git clone $GIT_REPO . -b $BRANCH_TAG --depth 1 
 
 # restore as distinct layers
 RUN dotnet restore $ROOT

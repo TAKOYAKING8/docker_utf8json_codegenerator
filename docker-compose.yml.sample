@@ -7,6 +7,7 @@ services:
       args:
         # gitのリリースタグ
         BRANCH_TAG: "v1.3.7"
+        # GIT_REPO: https://github.com/neuecc/Utf8Json.git
     # 自身のプロジェクトパス。このパス以下のフォルダとファイルが/srcをルートとして配下に配置される。下のcommandの引数 -dや-oのパスはここを基準に指定する。
     volumes:
       - </YOUR/PROJECT/PATH>:/src/
